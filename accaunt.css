@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    background: #4b3832;
+}
+form {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 5fr;
+    grid-template-rows: 2fr 1fr 2fr 1fr 2fr 1fr 1fr 1fr 1fr 2fr 1fr 2fr;
+}
+form label, form input, form span {
+    grid-column: 2 / 4;
+    text-align: center;
+}
+form, input:placeholder-shown, input, #done {
+    font-size: 3vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #be9b7b;
+    font-weight: bold;
+}
+input {
+    background: #fff4e6;
+    border: 5px ridge #854442;
+    border-radius: 5px;
+}
+#name {
+    grid-row: 2 / 3;
+}
+#pass {
+    grid-row: 4 / 5;
+}
+#repass {
+    grid-row: 6 / 7;
+}
+.male {
+    grid-column: 2 / 3;
+    grid-row: 9 / 10;
+}
+label.male {
+    grid-row: 10 / 11;
+}
+.female {
+    grid-column: 3 / 4;
+    grid-row: 9 / 10;
+}
+label.female {
+    grid-row: 10 / 11;
+}
+span {
+    grid-row: 8 / 9;
+}
+#done {
+    grid-row: 11 /12;
+}
+@media (max-width: 900px) {
+    form {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
