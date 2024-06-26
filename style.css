@@ -84,7 +84,7 @@ label span {
     border-radius: 3vh; 
 }
 .radio:hover {
-    border: 0.3vh solid #854442;
+    border: 0.4vh solid #854442;
 }
 .radio::before {
     content: '';
@@ -122,10 +122,11 @@ label span {
 .switch {
     height: 3vh;
     width: 6vh;
-    background: #4b3832;
+    background: #3c2f2f;
     margin-left: 20px;
     border: 0.3vh solid #854442;
     border-radius: 30px;
+    box-shadow: 4px 4px 6px #000;
     transition: 0.2s ease-in;
 }
 .switch::before {
@@ -138,18 +139,26 @@ label span {
     width: 2.5vh;
     border-radius: 2.5vh;
     background: #be9b7b;
+    box-shadow: 2px 2px 2px #000;
     transition: 0.2s ease-in;
 }
-#dark_inp:checked + #dark_div::before {
+#dark_inp:checked ~ #dark_div::before {
     transform: translateX(3vh);
-    background: #4b3832;
+    animation: switchAnimation 0.3s ease-in;
+    background: #3c2f2f;
+    box-shadow: -2px 2px 2px #222;
 }
-#dark_inp:checked + #dark_div {
+#dark_inp:checked ~ #dark_div {
     background: #be9b7b;
+}
+#dark_inp:checked + header {
+    color: #3c2f2f;
+    background: #fff4e6;
 }
 #music_inp:checked + #music_div::before {
     transform: translateX(3vh);
     background: #4b3832;
+    box-shadow: -2px 2px 2px #222;
 }
 #music_inp:checked + #music_div {
     background: #be9b7b;
@@ -157,6 +166,7 @@ label span {
 #sound_inp:checked + #sound_div::before {
     transform: translateX(3vh);
     background: #4b3832;
+    box-shadow: -2px 2px 2px #222;
 }
 #sound_inp:checked + #sound_div {
     background: #be9b7b;
@@ -164,11 +174,13 @@ label span {
 
 .switch:hover {
     cursor: pointer;
-    background: #3c2f2f;
 }
 
 .custom_check::after, .custom_radio::after, .custom_check::before, .custom_radio::before {
     display: none;
+}
+audio {
+    width: 90%;
 }
 .header_list {
     position: fixed;
@@ -183,6 +195,7 @@ label span {
     border: 15px ridge #854442;
     opacity: 0.99;
     box-shadow: 0 -8px 20px #000;
+    text-shadow: 2px 2px 7px;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -216,6 +229,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: 0.3s ease-in;
 }
 h1 {
     text-shadow: 2px 2px 4px #be9b7b;
@@ -223,10 +237,11 @@ h1 {
 main h1 {
     font-size: 40px;
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    font-weight: bold;
+    font-weight: 100;
     letter-spacing: 3px;
     word-spacing: 6px;
     padding-bottom: 20px;
+    transition: all 0.2s ease-in;
 }
 h3 {
     font-size: 2vw;
@@ -250,6 +265,9 @@ aside {
     box-shadow: 5px 5px 15px;
     grid-column: 2 / 3;
     grid-row: 3 / 4;
+}
+aside big {
+    text-shadow: 2px 2px 5px #3c2f2f;
 }
 
 @media (max-width: 800px) {
@@ -348,7 +366,7 @@ aside {
         bottom: 1.3vh;
     }
 }
-
+ 
 nav {
     margin-left:3vw;
     margin-right: 3vw;
@@ -365,15 +383,16 @@ nav li a {
     color: #3c2f2f;
     font-size: 2.5vh;
     text-decoration: none;
+    text-shadow: 0.5px 0.5px 2px #000;
     margin: 1vh 0;
     background: #fff4e6;
     border: 3px solid	#854442;
     border-radius: 5px;
     box-shadow: 4px 4px 7px;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 nav li a:hover {
-    transform: scale(0.9);
+    transform: scale(0.95);
     color: #fff4e6;
     background: #4b3832;
     border-color: #4b3832;
