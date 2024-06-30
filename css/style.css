@@ -75,8 +75,6 @@ label span {
 }
 
 .radio {
-    position: relative;
-    right: 60px;
     height: 3vh;
     width: 3vh;
     background: #be9b7b;
@@ -84,7 +82,7 @@ label span {
     border-radius: 3vh; 
 }
 .radio:hover {
-    border: 0.4vh solid #854442;
+    border-width: 0.4vh;
 }
 .radio::before {
     content: '';
@@ -98,18 +96,23 @@ label span {
     transform: scale(0);
     transition: 0.15s ease-in;
 }
-#high_inp:checked + #high::before {
+.lang_inp:checked + .radio{
+    border-color: #854442;
+}
+#ru_inp:checked + #ru::before {
     transform: scale(0.8);
 }
-#low_inp:checked + #low::before {
+#eng_inp:checked + #eng::before {
     transform: scale(0.8);
 }
-.quality_inp {
+.lang_inp {
     display: none;
 }
-.custom_radio {
-    position: relative;
-    margin: 50px 0 0 0;
+#li_6 {
+    grid-column: 2 / 3;
+}
+#li_7 {
+    grid-column: 3 / 4;
 }
 
 .custom_check, .custom_radio {
@@ -197,20 +200,34 @@ audio {
     box-shadow: 0 -8px 20px #000;
     text-shadow: 2px 2px 7px;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     top: -100vh;
     bottom: 100vh;
     transition: 0.5s;
 }
 .header_list li {
     list-style: none;
-    padding: 10px;
+    padding: 5vh 0 0 0;
     font-size: 5vh;
+    grid-column: 2 / 4;
 }
-img {
+#li_1 {
+    grid-row: 1 / 2;
+}
+#li_3, #li_6, #li_7, #li_8 {
+    padding: 0;
+}
+#li_5 {
+    display: flex;
+    justify-content: space-around;
+}
+#li_6, #li_7 {
+    display: flex;
+    justify-content: center;
+}
+#acc_img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -220,7 +237,7 @@ img {
 /* main */
 main {
     width: 70%;
-    margin-left: 15%;
+    margin-left: 15%; 
     text-align: center;
     color: 	#3c2f2f;
     text-shadow: 2px 2px 4px #be9b7b;
@@ -328,13 +345,6 @@ aside big {
         height: 2.1vh;
         width: 2.1vh;
     }
-    .custom_radio {
-        right: 3vw;
-        bottom: 20vh;
-    }
-    #quality_high {
-        right: 15vw;
-    }
     #dark_inp:checked + #dark_div::before {
         transform: translateX(2.4vh);
     }
@@ -343,14 +353,6 @@ aside big {
     }
     #sound_inp:checked + #sound_div::before {
         transform: translateX(2.4vh);
-    }
-}
-@media (max-width: 360px) {
-    .custom_radio {
-        right: -5vw;
-    }
-    #quality_high {
-        right: 10vw;
     }
 }
 @media (max-width: 350px) {
